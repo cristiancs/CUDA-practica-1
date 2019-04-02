@@ -85,6 +85,9 @@ int main(int argc, char const *argv[]) {
 			fprintf(pSalida, "%f ", b[i]);
 		}
 	}
+	delete r;
+	delete g;
+	delete b;
 
 	//cin.get();
 	return 0;
