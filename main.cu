@@ -11,17 +11,7 @@ __global__ void kernel(int a) {
 int main() {
 
 
-	string line;
-	ifstream myfile ("img.txt");
-	if (myfile.is_open()) {
 
-		while (myfile.get(c)) {
-			std::cout << c << endl;
-		}   
-	
-	    
-	    myfile.close();
-	}
 	int a = 2;
 	kernel<<<1, 1>>>(a);
 	cudaDeviceSynchronize();
