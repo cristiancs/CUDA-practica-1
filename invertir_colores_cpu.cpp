@@ -43,10 +43,20 @@ int main(int argc, char const *argv[]) {
 
 	fclose (pFile);
 
-	for (int i = 0; i < (n*m); ++i) {
-		
+	clock_t t1, t2;
+	double ms;
+	
+
+	t1 = clock();
+    
+    for (int i = 0; i < (n*m); ++i) {
 		CambiarColores(&r[i], &g[i], &b[i]);
 	}
+
+
+    t2 = clock();
+    ms = 1000.0 * (double)(t2 - t1) / CLOCKS_PER_SEC;
+    cout << "Tiempo CPU: " << ms << " [ms]" << endl;
 
 	FILE * pSalida;
 	pSalida = fopen ("img_salida.txt","w");

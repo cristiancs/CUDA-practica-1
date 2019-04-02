@@ -37,7 +37,7 @@ int main(int argc, char const *argv[]) {
 
 
 	int block_size = 256;
-	int grid_size = (int) ceil((float) n / block_size);
+	int grid_size = (int) ceil((float) n*m / block_size);
 
 
 	float* r_gpu, *g_gpu, *b_gpu;
@@ -82,7 +82,7 @@ int main(int argc, char const *argv[]) {
 	cudaEventSynchronize(ct2);
 	cudaEventElapsedTime(&dt, ct1, ct2);
 
-	cout << "Tiempo: " << dt << "[ms]" << endl; 
+	cout << "Tiempo GPU: " << dt << " [ms]" << endl; 
 
 	cudaMemcpy(r, r_gpu, sizeof(float) * n * m, cudaMemcpyDeviceToHost);
 	cudaMemcpy(g, g_gpu, sizeof(float) * n * m, cudaMemcpyDeviceToHost);
@@ -92,6 +92,8 @@ int main(int argc, char const *argv[]) {
 	cudaFree(r_gpu);
 	cudaFree(g_gpu);
 	cudaFree(b_gpu);
+
+
 
 
 
